@@ -1,3 +1,4 @@
+
 class Pub:
     def __init__(self,name,till,drinks):
         self.name = name
@@ -18,3 +19,14 @@ class Pub:
             return True
         else:
             return False
+
+    def stock_decrease(self,drink,pub):
+        pub.drinks[drink] -= 1
+     
+    def stock_value(self):
+        total = 0 
+        for key, value in self.drinks.items():
+            total += (key.price * value)
+        return total
+
+    

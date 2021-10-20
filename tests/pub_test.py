@@ -9,8 +9,8 @@ class TestPub(unittest.TestCase):
         self.customer1 = Customer ("James",300.00,21,4)
         self.customer2 = Customer ("Alex",500.00,16,0)
         self.drink = Drink ("vodka",20.00,5)
-        drinks = []
-        drinks.append(self.drink)
+        drinks = {}
+        drinks[self.drink] = 10
         self.pub = Pub ("Black Bull",1000.00,drinks)
 
     def test_pub_has_name(self):
@@ -20,10 +20,10 @@ class TestPub(unittest.TestCase):
         self.assertEqual(1000.00, self.pub.till)
 
     def test_pub_has_drinks(self):
-        self.assertEqual([self.drink],self.pub.drinks)
+        self.assertEqual({self.drink:10},self.pub.drinks)
 
     def test_till_has_increased(self):
-        self.customer1.buy_drink(self.pub.drinks[0],self.pub)
+        self.customer1.buy_drink(self.drink,self.pub)
         self.assertEqual(1020.00, self.pub.till)
 
     def test_pub_check_age(self):
@@ -37,3 +37,10 @@ class TestPub(unittest.TestCase):
     
     def test_pub_check_drunkeness2(self):
         self.assertEqual(True, self.pub.check_drunk(self.customer2))
+
+    def test_decrease_stock(self):
+        self.customer1.buy_drink(self.drink,self.pub)
+        self.assertEqual(9, self.pub.drinks[self.drink])
+
+    def test_stock_value(self):
+        self.assertEqual(200, self.pub.stock_value())
