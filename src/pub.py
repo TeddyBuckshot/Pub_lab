@@ -4,4 +4,5 @@ class Pub:
         self.till = till
         self.drinks = drinks
 
-    
+    def increase_money(self,amount):
+        self.till += amount
