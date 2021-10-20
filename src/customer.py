@@ -7,6 +7,7 @@ class Customer:
         self.wallet = wallet
         self.age = age
         self.drunkeness = drunkeness
+        self.purchases = []
 
     def buy_drink(self,drink,pub):
         if pub.check_age(self) == True:
@@ -15,6 +16,8 @@ class Customer:
                 pub.increase_money(drink.price)
                 self.drunkeness += drink.alcohol_level
                 pub.stock_decrease(drink,pub)
+                self.purchases.append(drink.name)
+            
         
     def decrease_wallet(self,amount):
         self.wallet -= amount 
