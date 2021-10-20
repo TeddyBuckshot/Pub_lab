@@ -12,6 +12,7 @@ class TestCustomer(unittest.TestCase):
         self.food = Food ("chips",2.5,1)
         drinks = {}
         drinks[self.drink] = 10
+        
         self.pub = Pub ("Black Bull",1000.00,drinks)
     
     def test_customer_has_name(self):
