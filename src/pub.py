@@ -1,3 +1,4 @@
+from src.drink import Drink
 
 class Pub:
     def __init__(self,name,till,drinks):
@@ -29,4 +30,17 @@ class Pub:
             total += (key.price * value)
         return total
 
-    
+
+    # experiment
+    def return_drinks_dict(self):
+        drink1 = Drink("vodka", 20.00, 5, 10)
+        drink2 = Drink("tequila", 7.05, 8, 35)
+        drink3 = Drink("wine", 25.50, 2, 15)
+        list_of_drink_objects = []
+        list_of_drink_objects.append(drink1)
+        list_of_drink_objects.append(drink2)
+        list_of_drink_objects.append(drink3)
+        list_of_stock_values = [10, 35, 15]
+        drinks = dict(zip(list_of_drink_objects, list_of_stock_values))
+        print(drinks)
+        return drinks

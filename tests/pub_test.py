@@ -8,10 +8,11 @@ class TestPub(unittest.TestCase):
         self.customer = Customer ("Sam",300.00,18,11)
         self.customer1 = Customer ("James",300.00,21,4)
         self.customer2 = Customer ("Alex",500.00,16,0)
-        self.drink = Drink ("vodka",20.00,5)
-        drinks = {}
-        drinks[self.drink] = 10
-        self.pub = Pub ("Black Bull",1000.00,drinks)
+        # self.drink = Drink ("vodka",20.00,5, 10)
+        # self.drink2 = Drink ("tequila",15.50,15, 30)
+        # drinks = {}
+        # drinks[self.drink] = 10
+        self.pub = Pub ("Black Bull", 1000.00, self.return_drinks_dict())
 
     def test_pub_has_name(self):
         self.assertEqual("Black Bull", self.pub.name)
